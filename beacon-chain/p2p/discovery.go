@@ -696,6 +696,7 @@ func convertToMultiAddr(nodes []*enode.Node) []ma.Multiaddr {
 }
 
 func convertToAddrInfo(node *enode.Node) (*peer.AddrInfo, []ma.Multiaddr, error) {
+	log.Infof("[convertToAddrInfo] Retrieving multiaddrs for node %s", node.String())
 	multiAddrs, err := retrieveMultiAddrsFromNode(node)
 	if err != nil {
 		return nil, nil, err
